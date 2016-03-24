@@ -1,0 +1,60 @@
+<div class="detail-header-container">
+    <div class="navigation-wrapper">
+        <message-box></message-box>
+        <div class="navigation">
+            <div class="logo nav-item"
+                 ng-click="portfolioPage.goToHomePage()">
+            </div>
+            <div class="page-nav nav-item"
+                 ng-if="!portfolioPage.isScreenNarrow">
+                <detail-nav></detail-nav>
+            </div>
+            <div class="blog nav-item"
+                 ng-if="!portfolioPage.isScreenNarrow">
+                BLOG
+            </div>
+        </div>
+    </div>
+
+    <div class="header-image">
+        <img class="image-image"
+             ng-src="{{::portfolioPage.portfolioItem.header.image_path}}"
+             element-loader>
+        <div class="spinner-container"
+             ng-if="elementIsLoading">
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-container">
+        <div class="header-tags">
+            <div class="header-tag"
+                 ng-repeat="tag in ::portfolioPage.portfolioItem.header.tags">
+                <div class="tag"
+                     ng-class="{odd: $odd, even: $even}"
+                     ng-bind="tag">
+                </div>
+                <div class="separator"
+                     ng-hide="$last">
+                    |
+                </div>
+            </div>
+        </div>
+        <div class="detail-header-title"
+             ng-bind="::portfolioPage.portfolioItem.header.title">
+
+        </div>
+        <div class="detail-header-description"
+             ng-bind="::portfolioPage.portfolioItem.header.description">
+        </div>
+        <div class="detail-header-date"
+             ng-bind="::portfolioPage.portfolioItem.header.date">
+        </div>
+    </div>
+</div>

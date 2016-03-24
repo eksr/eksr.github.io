@@ -1,0 +1,53 @@
+<div class="portfolio-page">
+    <div class="portfolio-header-container">
+        <detail-header></detail-header>
+    </div>
+    <div class="portfolio-content-container">
+        <div ng-repeat="textSection in ::portfolioPage.portfolioItem.text_sections">
+            <text-section class="text-content"
+                          number-of-columns="textSection.number_of_columns"
+                          text="textSection.text"
+                          annotations="textSection.annotations">
+            </text-section>
+            <image-section ng-if="portfolioPage.portfolioItem.image_sections[$index]"
+                           class="image-content"
+                           image="portfolioPage.portfolioItem.image_sections[$index]">
+            </image-section>
+        </div>
+        <div ng-repeat="media in portfolioPage.portfolioItem.extra_images">
+            <image-section ng-if="media.type !== 'video'"
+                           class="image-content"
+                           image="media">
+            </image-section>
+            <div class="image-content image-section video-section"
+                 ng-if="media.type === 'video'">
+                <div class="image-container regular video-container"
+                     ng-bind-html="media.trustedSource">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="false"
+         class="portfolio-page-bottom-links">
+        <div class="next-project"
+             ng-if="portfolioPage.portfolioItem.footer.showNext"
+             ng-click="portfolioPage.goToNextPortfolioItem()">
+            Next Project
+        </div>
+        <div class="go-live"
+             ng-if="portfolioPage.portfolioItem.footer.showLive">
+            <!-- add link here, also to the portfolio data ie portfolioItem.link_to_live_site !-->
+            Go to live site
+        </div>
+    </div>
+    <div class="portfolio-page-footer">
+        <div class="footer-item">
+             This website was created by Ekin Keserer.
+        </div>
+        <div class="footer-item footer-logo">
+        </div>
+        <div class="footer-item">
+            <a href="https://www.linkedin.com/in/ekinkeserer">LinkedIn</a>
+        </div>
+    </div>
+</div>

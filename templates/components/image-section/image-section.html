@@ -1,0 +1,22 @@
+<div class="image-section">
+    <div class="annotation-container">
+        <div class="bottom-annotation"
+             ng-bind="::image.annotation">
+        </div>
+    </div>
+    <div class="image-container {{::image.class}}">
+        <img class="section-image"
+             ng-src="{{::image.path}}"
+             element-loader="">
+        <div class="spinner-container"
+              ng-if="elementIsLoading">
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+    </div>
+</div>

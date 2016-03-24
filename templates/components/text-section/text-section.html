@@ -1,0 +1,19 @@
+<div class="text-section">
+    <div class="annotation-container"
+         ng-if="textSection.annotations">
+        <div class="top-annotation"
+             ng-if="textSection.annotations.top"
+             ng-bind="textSection.annotations.top">
+        </div>
+        <div class="bottom-annotation"
+             ng-if="textSection.annotations.bottom"
+             ng-bind="textSection.annotations.bottom">
+        </div>
+    </div>
+    <div class="text-wrapper"
+            ng-class="{top: textSection.annotations.top, bottom: textSection.annotations.bottom}">
+        <div class="text-container"
+             ng-bind-html="textSection.trustedContent">
+        </div>
+    </div>
+</div>
